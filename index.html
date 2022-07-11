@@ -9,7 +9,6 @@
 </head>
 <body>
 <script src="./node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
-Hi!
 <form method="get">
     <label for="selectDropDown">Drop down</label>
     <select id="selectDropDown" name="selectDropDown">
@@ -17,21 +16,28 @@ Hi!
         <option value="A">Option A</option>
         <option value="B">Option B</option>
     </select>
-    <button type="button" onclick="changeSelectOption()" id="changeOption">Change to Option A</button>
+    <button type="button" onclick="changeSelectOptionWithAttr()" id="changeOptionAttr">
+        Change to Option A using .attr()
+    </button>
+    <button type="button" onclick="changeSelectOptionWithProp()" id="changeOptionProp">
+        Change to Option A using .prop()
+    </button>
     <button type="submit" id="submitForm">Submit Form</button>
 </form>
 <h3>Parameters:</h3>
 <p id="parameters"></p>
 </body>
 <script>
-    function changeSelectOption() {
-        $('#selectDropDown').find('option:contains(\'A\')').attr('selected', 'selected');
+    function changeSelectOptionWithAttr() {
+        $('#selectDropDown').find('option:contains(\'A\')').attr('selected', true);
     }
-</script>
-<script>
+
+    function changeSelectOptionWithProp() {
+        $('#selectDropDown').find('option:contains(\'A\')').prop('selected', true);
+    }
+
     window.onload = () => {
-        const params = new URLSearchParams(window.location.search);
-        $('#parameters').text(params);
+        $('#parameters').text(new URLSearchParams(window.location.search));
     }
 </script>
 </html>
