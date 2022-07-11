@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script src="./node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+Hi!
+<form method="get" onsubmit="return submitForm(this)">
+    <button type="button" onclick="changeText()">Test</button>
+    <div>
+        <label for="javascriptInput">JavaScript</label>
+        <input id="javascriptInput" name="javascriptInput">
+    </div>
+    <div>
+        <label for="jqueryInput">jQuery</label>
+        <input id="jqueryInput" name="jqueryInput">
+    </div>
+    <button type="submit">Submit</button>
+</form>
+</body>
+<script>
+    function changeText() {
+        document.querySelector('#javascriptInput').value = 'A';
+        $('#jqueryInput').val('B');
+    }
+
+    function submitForm(event) {
+        console.log(event);
+        $('#jqueryInput').val(event);
+        return true;
+    }
+</script>
+</html>
